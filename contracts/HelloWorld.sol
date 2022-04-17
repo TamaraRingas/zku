@@ -10,5 +10,7 @@ contract HelloWorld {
     number = _number;
   }
 
- 
+  function retrieveNumber() external returns (bool) {
+    return number;
+  }
 }
