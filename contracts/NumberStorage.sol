@@ -12,7 +12,7 @@ contract NumberStorage {
     stored = true;
   }
 
-  function retrieveNumber() external numberStored returns (bool) {
+  function retrieveNumber() external numberStored returns (uint256) {
     return number;
   }
 
