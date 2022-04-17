@@ -2,7 +2,7 @@
 
 pragma solidity 0.8.13;
 
-contract HelloWorld {
+contract NumberStorage {
 
   uint256 number;
   bool stored;
