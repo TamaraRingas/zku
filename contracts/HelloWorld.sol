@@ -3,7 +3,12 @@
 pragma solidity 0.8.13;
 
 contract HelloWorld {
-  function setNumber() external {
-    
+
+  uint256 number;
+
+  function storeNumber(uint256 _number) external {
+    number = _number;
   }
+
+ 
 }
