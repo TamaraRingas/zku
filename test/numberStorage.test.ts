@@ -12,7 +12,6 @@ describe.only("Storage tests", () => {
     alice = await ethers.getSigners();
     StorageArtifacts = await ethers.getContractFactory("NumberStorage");
     store = await StorageArtifacts.deploy();
-
   });
 
   describe("Try Retrieve Before Storing", async () => {
