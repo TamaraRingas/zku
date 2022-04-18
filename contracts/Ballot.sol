@@ -35,6 +35,8 @@ contract Ballot {
         chairperson = msg.sender;
         voters[chairperson].weight = 1;
 
+        startTime = block.timestamp;
+
         // For each of the provided proposal names,
         // create a new proposal object and add it
         // to the end of the array.
