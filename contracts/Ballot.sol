@@ -115,7 +115,7 @@ contract Ballot {
 
     /// Give your vote (including votes delegated to you)
     /// to proposal `proposals[proposal].name`.
-    function vote(uint proposal) external {
+    function vote(uint proposal) external voteEnded {
         Voter storage sender = voters[msg.sender];
         require(sender.weight != 0, "Has no right to vote");
         require(!sender.voted, "Already voted.");
