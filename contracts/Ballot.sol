@@ -152,7 +152,7 @@ contract Ballot {
     }
 
     modifier voteEnded(){
-      
+      require(block.timestamp < startTime + 5 minutes);
       _;
     }
 }
