@@ -8,9 +8,14 @@ describe("Ballot Tests",  () => {
   let BallotArtifacts;
   let ballot: Contract;
   
+  const fastForward = async (seconds: number) => {
+  await ethers.provider.send("evm_increaseTime", [seconds]);
+  await ethers.provider.send("evm_mine", []);
+  };
+
   beforeEach(async () => {
     alice = await ethers.getSigners();
     BallotArtifacts = await ethers.getContractFactory("Ballot");
     ballot = await BallotArtifacts.deploy();
-  });
+  }); 
 });
