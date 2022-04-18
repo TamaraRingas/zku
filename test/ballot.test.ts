@@ -8,7 +8,9 @@ describe("Ballot Tests",  () => {
   let BallotArtifacts;
   let ballot: Contract;
   
-  beforeEach() {
-
-  }
+  beforeEach(async () => {
+    alice = await ethers.getSigners();
+    BallotArtifacts = await ethers.getContractFactory("Ballot");
+    ballot = await BallotArtifacts.deploy();
+  });
 });
