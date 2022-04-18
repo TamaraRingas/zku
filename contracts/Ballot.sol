@@ -35,6 +35,7 @@ contract Ballot {
         chairperson = msg.sender;
         voters[chairperson].weight = 1;
 
+        // Set start time to current time for voting timing
         startTime = block.timestamp;
 
         // For each of the provided proposal names,
@@ -153,8 +154,12 @@ contract Ballot {
         winnerName_ = proposals[winningProposal()].name;
     }
 
+    // Modifier to ensure that the time limit for voting has not expired, reverts if longer than 5 minutes
+
     modifier voteEnded(){
-      require(block.timestamp < startTime + 5 minutes, "Voting has ended");
+      require(
+        block.timestamp < startTime + 5 minutes, 
+        "Voting has ended");
       _;
     }
 }
