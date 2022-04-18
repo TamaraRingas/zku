@@ -27,6 +27,9 @@ contract Ballot {
     // A dynamically-sized array of `Proposal` structs.
     Proposal[] public proposals;
 
+    // A state veriable of the start time
+    uint256 startTime; 
+
     /// Create a new ballot to choose one of `proposalNames`.
     constructor(bytes32[] memory proposalNames) {
         chairperson = msg.sender;
@@ -146,5 +149,10 @@ contract Ballot {
             returns (bytes32 winnerName_)
     {
         winnerName_ = proposals[winningProposal()].name;
+    }
+
+    modifier voteEnded(){
+      
+      _;
     }
 }
