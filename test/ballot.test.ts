@@ -18,4 +18,9 @@ describe("Ballot Tests",  () => {
     BallotArtifacts = await ethers.getContractFactory("Ballot");
     ballot = await BallotArtifacts.deploy();
   }); 
+
+  describe("Try to vote after 5 minutes", async () => {
+    await fastForward(305);
+    await expect(ballot.connect(alice).vote().to.revertWith("Voting has ended"));
+  });
 });
